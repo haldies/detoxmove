@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0fdfa"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TIME TO BREATHE"
+        android:textColor="#14b8a6"
+        android:textSize="20sp"
+        android:letterSpacing="0.1"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/overlayTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Take a Break"
+        android:textColor="#134e4a"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/overlayMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You've been scrolling for a while. Let's step away for a moment and move your body!"
+        android:textColor="#0d9488"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:lineSpacingExtra="6dp"
+        android:layout_marginBottom="60dp"/>
+
+    <Button
+        android:id="@+id/btnGoHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Close App"
+        android:backgroundTint="#134e4a"
+        android:textColor="#FFFFFF"
+        android:paddingVertical="16dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:shape="ring"/>
+</LinearLayout>

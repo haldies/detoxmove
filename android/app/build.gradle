@@ -55,9 +55,19 @@ react {
 }
 
 /**
+ * Set this to true to create four separate APKs instead of one:
+ *   - armeabi-v7a
+ *   - arm64-v8a
+ *   - x86
+ *   - x86_64
+ * These are much smaller than a single universal APK.
+ */
+def enableSeparateBuildPerCPUArchitecture = false
+
+/**
  * Set this to true to Run Proguard on Release builds to minify the Java bytecode.
  */
-def enableProguardInReleaseBuilds = false
+def enableProguardInReleaseBuilds = true
 
 /**
  * The preferred build flavor of JavaScriptCore (JSC)
@@ -98,11 +108,18 @@ android {
             signingConfig signingConfigs.debug
         }
         release {
-            // Caution! In production, you need to generate your own keystore file.
-            // see https://reactnative.dev/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.debug // For now use debug key
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+
+    splits {
+        abi {
+            reset()
+            enable enableSeparateBuildPerCPUArchitecture
+            universalApk false
+            include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
         }
     }
 }
@@ -116,4 +133,18 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    implementation "com.google.android.gms:play-services-location:21.3.0"
+
+    // CameraX
+    def camerax_version = "1.3.1"
+    implementation "androidx.camera:camera-core:${camerax_version}"
+    implementation "androidx.camera:camera-camera2:${camerax_version}"
+    implementation "androidx.camera:camera-lifecycle:${camerax_version}"
+    implementation "androidx.camera:camera-video:${camerax_version}"
+    implementation "androidx.camera:camera-view:${camerax_version}"
+    // MediaPipe
+    implementation "com.google.mediapipe:tasks-vision:0.10.14"
 }
+
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"

@@ -13,9 +13,9 @@ class MainApplication : Application(), ReactApplication {
     getDefaultReactHost(
       context = applicationContext,
       packageList =
-        PackageList(this).packages.apply {
+        PackageList(this).packages.toMutableList().apply {
           // Packages that cannot be autolinked yet can be added manually here, for example:
-          // add(MyReactNativePackage())
+          add(UsagePackage())
         },
     )
   }
@@ -23,5 +23,8 @@ class MainApplication : Application(), ReactApplication {
   override fun onCreate() {
     super.onCreate()
     loadReactNative(this)
+    
+    // --- INISIALISASI HYBRID AI MODEL (RAM & ASSETS CHECK) --- ✨
+    PoseLandmarkerManager.initModel(this)
   }
 }

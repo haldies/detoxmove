@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DetoxMove</string>
+    <string name="accessibility_description">DetoxMove uses this service to detect when addictive apps are opened and enforce your screen time limits by blocking them.</string>
 </resources>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    android:background="#EDF2F7">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@mipmap/ic_launcher_round"
+        android:layout_marginBottom="32dp" />
+
+    <TextView
+        android:id="@+id/overlayAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aplikasi Terbatas"
+        android:textColor="#2D3748"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:paddingBottom="8dp"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/overlayBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Waktu santaimu sudah habis hari ini. Yuk, gerakkan tubuhmu dulu biar dapat energi untuk beli waktu main lagi!"
+        android:textColor="#4A5568"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:layout_marginBottom="40dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnOpenApp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Buka Menu Olahraga"
+            android:textAllCaps="false"
+            android:backgroundTint="#14B8A6"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:text="Kembali"
+            android:textAllCaps="false"
+            android:backgroundTint="#CBD5E1"
+            android:textColor="#334155"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>
