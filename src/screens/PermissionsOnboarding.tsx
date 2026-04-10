@@ -25,7 +25,7 @@ interface PermissionItem {
   isOptional?: boolean;
 }
 
-const PERMISSIONS_LIST: PermissionItem[] = [
+const PERMISSIONS_LIST_ANDROID: PermissionItem[] = [
   {
     id: 'usage',
     title: 'Akses Penggunaan',
@@ -66,6 +66,33 @@ const PERMISSIONS_LIST: PermissionItem[] = [
   }
 ];
 
+const PERMISSIONS_LIST_IOS: PermissionItem[] = [
+  {
+    id: 'usage',
+    title: 'Screen Time',
+    description: 'Izinkan pembatasan aplikasi otomatis.',
+    icon: 'hourglass-outline',
+    key: 'usageStats'
+  },
+  {
+    id: 'motion',
+    title: 'Gerak & Fitur',
+    description: 'Deteksi aktivitas jalan dan olahraga.',
+    icon: 'walk-outline',
+    key: 'activityRecognition'
+  },
+  {
+    id: 'notifications',
+    title: 'Notifikasi',
+    description: 'Peringatan sisa waktu sesi.',
+    icon: 'notifications-outline',
+    key: 'notifications',
+    isOptional: true
+  }
+];
+
+const PERMISSIONS_LIST = Platform.OS === 'android' ? PERMISSIONS_LIST_ANDROID : PERMISSIONS_LIST_IOS;
+
 export default function PermissionsOnboarding({ navigation }: Props) {
   const [granted, setGranted] = useState<Record<string, boolean>>({});
   const [isXiaomi, setIsXiaomi] = useState(false); // To detect Xiaomi/MIUI 📱
@@ -94,17 +121,32 @@ export default function PermissionsOnboarding({ navigation }: Props) {
   }, []);
 
   const handleGrant = (id: string) => {
-    if (Platform.OS !== 'android') return;
-    switch(id) {
-       case 'usage': DetoxService.requestUsagePermission(); break;
-       case 'overlay': DetoxService.requestOverlayPermission(); break;
-       case 'battery': DetoxService.requestBatteryOptimizationPermission(); break;
-       case 'notifications': DetoxService.requestNotificationPermission(); break;
-       case 'background': DetoxService.requestBackgroundPopupPermission(); break;
+    if (Platform.OS === 'android') {
+      switch(id) {
+        case 'usage': DetoxService.requestUsagePermission(); break;
+        case 'overlay': DetoxService.requestOverlayPermission(); break;
+        case 'battery': DetoxService.requestBatteryOptimizationPermission(); break;
+        case 'notifications': DetoxService.requestNotificationPermission(); break;
+        case 'background': DetoxService.requestBackgroundPopupPermission(); break;
+      }
+    } else {
+      switch(id) {
+        case 'usage': DetoxService.requestUsagePermission(); break;
+        // iOS screen time combines usage and blocking
+        case 'motion': 
+          // Native logic for CoreMotion request if needed, 
+          // or just guidance/checking
+          break;
+        case 'notifications': 
+          // Handle via standard RN permissions or native bridge
+          break;
+      }
     }
   };
 
-  const isMandatoryDone = granted.usageStats && granted.overlay;
+  const isMandatoryDone = Platform.OS === 'android' 
+    ? (granted.usageStats && granted.overlay)
+    : (granted.usageStats && granted.activityRecognition);
 
   const PermissionRow = ({ item }: { item: PermissionItem }) => {
     const isGranted = granted[item.key];
@@ -180,7 +222,9 @@ export default function PermissionsOnboarding({ navigation }: Props) {
           </LinearGradient>
         </TouchableOpacity>
         {!isMandatoryDone && (
-            <Text style={styles.footerHint}>Aktifkan Akses Penggunaan & Overlay.</Text>
+            <Text style={styles.footerHint}>
+                {Platform.OS === 'android' ? 'Aktifkan Akses Penggunaan & Overlay.' : 'Aktifkan Screen Time & Gerak.'}
+            </Text>
         )}
       </View>
     </View>

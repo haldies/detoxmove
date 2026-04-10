@@ -1,4 +1,19 @@
 {
-  "name": "DetoxMove",
-  "displayName": "DetoxMove"
+  "expo": {
+    "name": "DetoxMove",
+    "slug": "detoxmove",
+    "version": "1.0.0",
+    "ios": {
+      "bundleIdentifier": "com.detoxmove.app",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.detoxmove"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7a165a88-ed7a-4359-8ca7-6238696f0eb4"
+      }
+    }
+  }
 }

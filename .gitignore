@@ -41,6 +41,28 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
+# Build artifacts
+*.apk
+*.aab
+*.ipa
+*.app
+build/
+bin/
+obj/
+*.bundle
+*.jsbundle
+
+# Android build
+android/app/build/
+android/.gradle/
+android/app/release/*.aab
+android/app/release/*.apk
+
+# iOS build
+ios/build/
+ios/DerivedData/
+*.moved-aside
+
 # fastlane
 #
 # It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
