@@ -1,97 +1,82 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# DetoxMove
 
-# Getting Started
+**Kurangi scrolling, tambah gerak.**
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+DetoxMove adalah aplikasi **digital detox berbasis AI untuk Android** yang membantu pengguna mengurangi waktu bermain media sosial dengan menukarnya menjadi aktivitas fisik.
 
-## Step 1: Start Metro
+Pengguna melakukan push-up, lalu aplikasi menghitung repetisi secara otomatis menggunakan teknologi pelacakan pose berbasis **MediaPipe dari Google**. Setiap **1 repetisi push-up memberikan 5 menit waktu akses** untuk aplikasi pilihan, seperti TikTok. Dengan begitu, pengguna bisa menikmati media sosial setelah bergerak dan berolahraga.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Fitur Utama
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- **Push-up counter berbasis AI** — menghitung repetisi secara otomatis melalui deteksi pose.
+- **Tukar gerakan dengan waktu layar** — setiap 1 repetisi push-up memberi 5 menit akses.
+- **Digital detox** — membantu membangun kebiasaan penggunaan media sosial yang lebih seimbang.
+- **Fokus Android** — proyek ini ditujukan untuk Android, termasuk kode native Android yang diperlukan.
+
+## Cara Kerja
+
+1. Pilih aplikasi media sosial yang ingin dibatasi.
+2. Lakukan push-up di depan kamera sesuai petunjuk aplikasi.
+3. MediaPipe membantu mendeteksi pose dan menghitung repetisi.
+4. Dapatkan 5 menit waktu akses untuk setiap repetisi yang terhitung.
+5. Gunakan waktu akses tersebut untuk aplikasi pilihan.
+
+## Teknologi
+
+- [React Native](https://reactnative.dev/) — antarmuka aplikasi.
+- [React Native Community CLI](https://github.com/react-native-community/cli) — tooling proyek React Native.
+- [MediaPipe](https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker) — teknologi deteksi pose untuk mendukung penghitungan gerakan.
+- Android native — integrasi dan kapabilitas khusus Android.
+
+## Persyaratan
+
+Sebelum menjalankan proyek, siapkan lingkungan pengembangan Android sesuai panduan resmi [React Native: Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment), termasuk Node.js, Android Studio, Android SDK, dan perangkat Android atau emulator.
+
+## Menjalankan Proyek
+
+Instal dependency dari direktori root proyek:
 
 ```sh
-# Using npm
+npm install
+```
+
+Jalankan Metro:
+
+```sh
 npm start
-
-# OR using Yarn
-yarn start
 ```
 
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
+Buka terminal kedua di direktori root proyek, lalu jalankan aplikasi pada perangkat atau emulator Android:
 
 ```sh
-# Using npm
 npm run android
-
-# OR using Yarn
-yarn android
 ```
 
-### iOS
+> Jika PowerShell di Windows memblokir `npm.ps1`, gunakan `npm.cmd install`, `npm.cmd start`, atau `npm.cmd run android`.
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+## Struktur Proyek
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```text
+DetoxMove/
+├── android/       # Proyek native Android
+├── scripts/       # Skrip bantu proyek
+├── App.tsx        # Entry point aplikasi (jika digunakan)
+├── package.json   # Dependency dan perintah npm
+└── README.md
 ```
 
-Then, and every time you update your native dependencies, run:
+Struktur aktual dapat berbeda mengikuti implementasi proyek.
 
-```sh
-bundle exec pod install
-```
+## Status Pengembangan
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+DetoxMove dikembangkan sebagai aplikasi Android. Ketersediaan fitur, kompatibilitas perangkat, dan integrasi pembatasan aplikasi bergantung pada implementasi serta izin Android yang diperlukan.
 
-```sh
-# Using npm
-npm run ios
+**Catatan:** Penghitungan pose berbasis kamera dapat dipengaruhi pencahayaan, posisi kamera, dan visibilitas tubuh. Gunakan aplikasi sebagai alat bantu kebugaran, bukan sebagai pengganti saran profesional.
 
-# OR using Yarn
-yarn ios
-```
+## Kontribusi
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+Kontribusi dan saran sangat diterima. Silakan buat issue untuk melaporkan bug atau mengusulkan peningkatan, atau kirim pull request.
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+## Lisensi
 
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Tambahkan informasi lisensi proyek di sini jika lisensi telah ditentukan.
