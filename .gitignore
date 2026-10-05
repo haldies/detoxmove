@@ -1,97 +1,119 @@
-# OSX
-#
+# ==========================================
+
+# OS
+
+# ==========================================
+
 .DS_Store
+Thumbs.db
+Desktop.ini
 
-# Xcode
-#
-build/
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-xcuserdata
-*.xccheckout
-*.moved-aside
-DerivedData
-*.hmap
-*.ipa
-*.xcuserstate
-**/.xcode.env.local
+# ==========================================
 
-# Android/IntelliJ
-#
-build/
-.idea
-.gradle
-local.properties
-*.iml
+# Node.js / React Native
+
+# ==========================================
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Package manager cache
+
+.npm/
+.pnpm-store/
+
+# ==========================================
+
+# React Native / Metro
+
+# ==========================================
+
+.metro-health-check*
+.metro-cache/
+.expo/
+.expo-shared/
+
+# ==========================================
+
+# Android native / Gradle
+
+# ==========================================
+
+.gradle/
+**/.gradle/
+**/build/
+**/local.properties
+**/.cxx/
+**/.externalNativeBuild/
+**/captures/
 *.hprof
-.cxx/
-*.keystore
-!debug.keystore
+*.iml
+.idea/
 .kotlin/
 
-# node.js
-#
-node_modules/
-npm-debug.log
-yarn-error.log
+# Android build artifacts
 
-# Build artifacts
 *.apk
 *.aab
-*.ipa
-*.app
-build/
-bin/
-obj/
-*.bundle
+*.ap_
+*.dex
+*.class
+
+# Android signing secrets
+
+*.jks
+*.keystore
+!debug.keystore
+
+# ==========================================
+
+# Environment / secrets
+
+# ==========================================
+
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# ==========================================
+
+# JavaScript bundles / generated artifacts
+
+# ==========================================
+
 *.jsbundle
+*.bundle
 
-# Android build
-android/app/build/
-android/.gradle/
-android/app/release/*.aab
-android/app/release/*.apk
+# ==========================================
 
-# iOS build
-ios/build/
-ios/DerivedData/
-*.moved-aside
+# Testing / coverage
 
-# fastlane
-#
-# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
-# screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/
+# ==========================================
+
+coverage/
+
+# ==========================================
+
+# Fastlane
+
+# ==========================================
 
 **/fastlane/report.xml
 **/fastlane/Preview.html
-**/fastlane/screenshots
-**/fastlane/test_output
+**/fastlane/screenshots/
+**/fastlane/test_output/
 
-# Bundle artifact
-*.jsbundle
+# ==========================================
 
-# Ruby / CocoaPods
-**/Pods/
-/vendor/bundle/
+# Editor / temporary files
 
-# Temporary files created by Metro to check the health of the file watcher
-.metro-health-check*
+# ==========================================
 
-# testing
-/coverage
-
-# Yarn
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
+*.swp
+*.swo
+*~
